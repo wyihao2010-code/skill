@@ -62,6 +62,42 @@ This repository captures a reusable rule set for sharing agent skills across env
 - 文档中不得出现敏感信息。
 - 优先使用简短、明确的规则，避免模糊表达。
 
+## How to Use / 如何使用
+
+### Find / 查询
+
+- Search by repository name: `wyihao2010-code/skill`
+- Search by topic: `Agent Skill Sharing Rules`
+- Search by keywords: `portable skill`, `SKILL.md`, `overlay`, `canonical source`, `privacy-safe`
+
+- 按仓库名搜索：`wyihao2010-code/skill`
+- 按主题搜索：`Agent Skill Sharing Rules`
+- 按关键词搜索：`portable skill`、`SKILL.md`、`overlay`、`canonical source`、`privacy-safe`
+
+### Apply / 使用
+
+1. Read the repository overview first.
+2. Check whether the skill is portable and shareable.
+3. Edit only the canonical source for shared content.
+4. Keep machine-specific settings local.
+5. Remove secrets, private paths, and other identifying details before publishing.
+
+1. 先阅读仓库总览。
+2. 判断对应 skill 是否可移植、可共享。
+3. 只修改共享内容的 canonical 源。
+4. 本机私有配置保持本地化。
+5. 发布前移除密钥、私有路径和其他可识别信息。
+
+### Reference / 引用
+
+- Use this repository as a rule template for agent skill sharing.
+- Keep attribution when copying, adapting, or redistributing the content.
+- Follow the license terms in `LICENSE`.
+
+- 可将本仓库作为 agent skill 共享规则模板。
+- 复制、改写或再分发时请保留署名。
+- 遵循 `LICENSE` 中的许可条款。
+
 ## One-Line Summary / 一句话总结
 
 Edit the shared source, audit it, distribute it, then verify it.
