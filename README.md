@@ -1,71 +1,69 @@
-# Agent Skill 共享规则 / Agent Skill Sharing Rules
+# Agent Skill Sharing Rules / Agent Skill 共享规则
 
-> 公开分享版，已移除本机路径、账号标识和其他可识别个人隐私。
+> Public reference only. Local paths, account identifiers, and other personally identifiable information have been removed.
 >
-> Public sharing version with local paths, account identifiers, and other personally identifiable information removed.
+> 仅供公开参考。已移除本机路径、账号标识和其他可识别个人隐私信息。
 
-## 中文版
+## Purpose / 目的
 
-### 1. 可共享的 Skill
-- 只有包含 `SKILL.md` 的 portable skill 才能直接共享。
-- 插件、MCP、App 不是直接可共享的 skill 形态，需要先说明边界，再决定是否做 wrapper。
-- 共享内容应尽量保留通用逻辑，避免绑定某台机器或某个账号。
+This repository captures a reusable rule set for sharing agent skills across environments while keeping sensitive information out of public documentation.
 
-### 2. 共享源与归属
-- 共享 skill 的 canonical 源应集中在统一位置管理。
-- 只修改 canonical 源，不把本地生成物、缓存目录或个人工作区当成最终来源。
-- 如果存在 overlay 形态，只共享通用代码；本机私有配置保持本地化。
+本仓库用于沉淀一套可复用的 agent skill 共享规则，适用于跨环境共享，同时避免在公开文档中暴露敏感信息。
 
-### 3. 隐私保护
-- 不要硬编码密钥、token、密码或连接字符串。
-- 不要公开本机用户名、绝对路径、私有域名、账号标识或内部服务地址。
-- 示例路径应抽象化，例如使用 `<workspace>`、`<skill-root>` 之类的占位符。
-- 日志、注释和 README 中也不要泄露敏感信息。
+## Scope / 适用范围
 
-### 4. 推荐更新流程
-1. 先编辑共享源。
-2. 再做只读审计，确认共享 / 本地 / overlay 的边界正确。
-3. 然后执行分发或重建步骤。
-4. 最后做语法和一致性校验，确认没有引入脏生成物。
+- Portable skills with a `SKILL.md` file
+- Shared skill distribution and synchronization
+- Public-facing documentation for sharing rules
+- Privacy-safe examples and process notes
 
-### 5. 质量要求
-- 变更前先判断是否会影响现有共享规则。
-- 变更后必须验证，不要在未验证时声称成功。
-- 如果需要删除或重命名现有文件，先征得确认。
+- 带有 `SKILL.md` 的 portable skill
+- 共享 skill 的分发与同步
+- 面向公开仓库的共享规则文档
+- 经过脱敏处理的示例与流程说明
 
-### 6. 一句话版
-- 先改共享源，再做审计，再分发，再验证。
-- 只共享通用能力，不共享个人环境。
+## Core Principles / 核心原则
 
-## English
+1. Share only portable, generic capability.
+2. Keep the canonical source in one shared location.
+3. Treat local build outputs, caches, and personal workspaces as non-authoritative.
+4. Keep machine-specific settings local when overlay patterns are used.
+5. Never publish secrets, tokens, passwords, connection strings, or internal endpoints.
+6. Replace concrete paths and identifiers with placeholders such as `<workspace>` and `<skill-root>`.
 
-### 1. What can be shared
-- Only portable skills with a `SKILL.md` file are directly shareable.
-- Plugins, MCP tools, and apps are not directly shareable skill formats; first clarify the boundary, then decide whether a wrapper is needed.
-- Shared content should stay generic and avoid binding to one machine or one account.
+1. 只共享可移植、通用的能力。
+2. 将 canonical 源集中在统一位置管理。
+3. 本地生成物、缓存目录和个人工作区不作为权威来源。
+4. 使用 overlay 模式时，仅共享通用代码，本机私有配置保持本地化。
+5. 不发布密钥、token、密码、连接字符串或内部服务地址。
+6. 使用 `<workspace>`、`<skill-root>` 等占位符替代具体路径和标识。
 
-### 2. Source of truth
-- Keep the canonical source of a shared skill in one shared location.
-- Update only the canonical source, and do not treat local build outputs, caches, or personal workspaces as the source of truth.
-- If an overlay exists, share only common code; keep machine-specific settings local.
+## Recommended Workflow / 推荐流程
 
-### 3. Privacy protection
-- Do not hard-code secrets, tokens, passwords, or connection strings.
-- Do not expose local usernames, absolute paths, private domains, account identifiers, or internal service endpoints.
-- Abstract example paths with placeholders such as `<workspace>` or `<skill-root>`.
-- Avoid leaking sensitive data in logs, comments, or README files.
+1. Edit the shared source.
+2. Run a read-only audit to confirm shared, local, and overlay boundaries.
+3. Run distribution or rebuild steps as needed.
+4. Validate syntax and consistency before publishing or syncing.
 
-### 4. Recommended update flow
-1. Edit the shared source first.
-2. Run a read-only audit to verify shared, local, and overlay boundaries.
-3. Run the distribution or rebuild step.
-4. Finish with syntax and consistency checks to avoid dirty generated artifacts.
+1. 编辑共享源。
+2. 执行只读审计，确认共享 / 本地 / overlay 的边界。
+3. 按需执行分发或重建步骤。
+4. 在发布或同步前完成语法与一致性校验。
 
-### 5. Quality bar
-- Check whether a change affects existing sharing rules before editing.
-- Verify after the change; do not claim success without validation.
-- If deleting or renaming existing files, ask first.
+## Quality Bar / 质量要求
 
-### 6. One-line version
-- Edit the shared source, audit it, distribute it, then verify it.
-- Share common capability only, not personal environment details.
+- Verify changes before claiming success.
+- Ask first before deleting or renaming existing files.
+- Keep documentation free of sensitive data.
+- Prefer short, explicit rules over vague guidance.
+
+- 变更后必须验证，未验证前不宣称成功。
+- 删除或重命名现有文件前先确认。
+- 文档中不得出现敏感信息。
+- 优先使用简短、明确的规则，避免模糊表达。
+
+## One-Line Summary / 一句话总结
+
+Edit the shared source, audit it, distribute it, then verify it.
+
+先改共享源，再审计，再分发，最后验证。
